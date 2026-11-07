@@ -1,22 +1,35 @@
 # Creator
 
-Creator is a small, independent bootstrap project for two upstream tools:
-[REA — Reverse Engineer Anything](https://github.com/morluto/rea) and
-[Craft Anything](https://github.com/storytold/craft-anything).
+Creator prepares [REA — Reverse Engineer Anything](https://github.com/morluto/rea)
+and [Craft Anything](https://github.com/storytold/craft-anything) from their
+**official upstream distributions** with one bootstrap command.
 
-**Goal:** clone Creator, run one setup command, and have both upstream tools
-available locally without manually installing each repository.
+```sh
+git clone https://github.com/tsuuanmi/Creator.git
+cd Creator
+python3 scripts/creator.py setup
+```
 
-**Current status:** this documentation PR defines the proposed MVP only.
-The bootstrap implementation belongs in a separate PR. Creator does not
-reimplement, fork, or bundle either upstream engine.
+Requires Python 3.9+ and Node.js/npm compatible with REA. The pinned tools
+install into ignored local `.creator/` paths, without cloning their sources,
+global installs, sudo or automatic agent configuration.
 
-- [Documentation router](docs/README.md)
-- [MVP requirements](docs/requirements/bootstrap.md)
-- [Tooling boundaries](docs/architecture/tooling.md)
-- [Upstream installation research](docs/research/RES-0001-upstream-installation.md)
+```sh
+python3 scripts/creator.py doctor
+python3 scripts/creator.py run rea -- --help
+python3 scripts/creator.py run craft -- --help
+```
+
+**MVP scope:** bootstrap, tool health checks and a passthrough CLI; no new
+reverse-engineering engine, builder or System plugin. Running full studies
+or builds may need separate coding-agent authentication, browsers and optional
+analysis engines. See the [engineering guide](docs/engineering/bootstrap.md)
+for supported platforms, verification and limitations.
+
+- [Documentation](docs/README.md)
+- [Requirements](docs/requirements/bootstrap.md)
+- [Architecture](docs/architecture/tooling.md)
 - [Documentation governance](docs/governance/documentation.md)
 
-A future optional capability/plugin for
-[System](https://github.com/tsuuanmi/System) is an integration goal,
-not part of the bootstrap MVP.
+An optional capability for [System](https://github.com/tsuuanmi/System)
+is a **future** integration, not part of the current MVP.

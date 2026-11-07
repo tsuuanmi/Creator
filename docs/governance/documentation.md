@@ -1,6 +1,6 @@
 ---
 level: 1
-areas: [governance=governance, requirements=requirement, architecture=architecture, research=research]
+areas: [governance=governance, requirements=requirement, architecture=architecture, research=research, engineering=engineering]
 id-prefixes: [research=RES]
 source-roots: []
 forbidden-names: [archive, archives, deprecated, history, legacy, old, temp, temporary]
@@ -21,10 +21,12 @@ This repository begins at **conformance level 1**, using the portable
 [checker](../../tools/docs.py) copied from the System documentation
 bootstrap. The checker implements level 1 with some additional link/graph
 checks; it is *not* a complete level 2/3 checker. The active source roots list
-is empty until a source package is introduced.
+is empty; independent script/test directories are covered by
+[engineering](../engineering/bootstrap.md).
 
-Canonical facts belong to [requirements](../requirements/README.md) and
-[architecture](../architecture/README.md). Investigation and upstream
+Canonical facts belong to [requirements](../requirements/README.md),
+[architecture](../architecture/README.md) and
+[engineering](../engineering/README.md). Investigation and upstream
 observations belong to [research](../research/README.md). A research record is
 not an implementation promise.
 

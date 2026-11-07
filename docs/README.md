@@ -4,8 +4,9 @@ Read by authority and purpose:
 
 - [Requirements](requirements/README.md): accepted MVP behavior and explicit
   non-goals, including success criteria for one-command setup.
-- [Architecture](architecture/README.md): target component boundaries, distinct
-  from currently implemented behavior.
+- [Architecture](architecture/README.md): component boundaries and ownership.
+- [Engineering](engineering/README.md): actual bootstrap commands, platform
+  support, verification scope and limitations.
 - [Research](research/README.md): upstream alternatives and limitations; not
   binding product requirements.
 - [Governance](governance/README.md): portable documentation standard, Creator
