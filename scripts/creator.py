@@ -151,7 +151,10 @@ def install_rea(force: bool) -> None:
     dest = HOME / "rea"
     if dest.exists() and not force:
         try:
-            print("REA already installed:", version(rea_command()))
+            detected = version(rea_command() + ["--version"])
+            if REA_VERSION not in detected:
+                raise RuntimeError(f"Expected REA {REA_VERSION}, found {detected}")
+            print("REA already installed:", detected)
             return
         except (RuntimeError, OSError, subprocess.TimeoutExpired):
             print("REA installation failed validation; reinstalling")
@@ -180,7 +183,10 @@ def install_craft(force: bool) -> None:
     name = artifact_name()
     if dest.exists() and not force:
         try:
-            print("Craft Anything already installed:", version(craft_command() + ["--version"]))
+            detected = version(craft_command() + ["--version"])
+            if CRAFT_VERSION not in detected:
+                raise RuntimeError(f"Expected Craft Anything {CRAFT_VERSION}, found {detected}")
+            print("Craft Anything already installed:", detected)
             return
         except (RuntimeError, OSError, subprocess.TimeoutExpired):
             print("Craft Anything installation failed validation; reinstalling")
